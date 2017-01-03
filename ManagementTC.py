@@ -27,7 +27,6 @@ for line in file:
     print "Sleep of", sleep_time, "seconds to speed of", linePrevious[2], "UP kbit"
     time.sleep(sleep_time)
 
-
 subprocess.call(['sudo', '-S', path_tc,'stop'])
 subprocess.call(['sudo', '-S', path_tc,'show'])
 
