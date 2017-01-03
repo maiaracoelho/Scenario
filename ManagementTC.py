@@ -2,8 +2,8 @@
 import subprocess
 import time
 
-path_file = "/home/berg/Documentos/Cenarios/bw_fluctuation_claro_mao_evening_AVBW.txt"
-path_tc = '/home/berg/tc.bash'
+path_file = "/home/berg/PycharmProjects/Scripts/bw_fluctuation_claro_mao_evening_AVBW.txt"
+path_tc = '/home/berg/PycharmProjects/Scripts/tc.bash'
 
 file = open(path_file, "r")
 flag = -1

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Scenario.iml" filepath="$PROJECT_DIR$/.idea/Scenario.iml" />
+      <module fileurl="file://$USER_HOME$/PycharmProjects/Scripts/.idea/Scripts_TC.iml" filepath="$USER_HOME$/PycharmProjects/Scripts/.idea/Scripts_TC.iml" />
     </modules>
   </component>
 </project>
