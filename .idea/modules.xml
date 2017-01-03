@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$USER_HOME$/PycharmProjects/Scripts/.idea/Scripts_TC.iml" filepath="$USER_HOME$/PycharmProjects/Scripts/.idea/Scripts_TC.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Scripts.iml" filepath="$PROJECT_DIR$/.idea/Scripts.iml" />
     </modules>
   </component>
 </project>
