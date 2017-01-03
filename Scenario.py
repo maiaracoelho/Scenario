@@ -2,24 +2,33 @@
 import subprocess
 import time
 
-path_file = "/home/berg/Documentos/Cenarios/input_file.txt"
+path_file = "/home/berg/Documentos/Cenarios/bw_fluctuation_claro_mao_evening_AVBW.txt"
 path_tc = '/home/berg/tc.bash'
 
 file = open(path_file, "r")
 flag = -1
+linePrevious = file.readline().split()
 
 print "Starting simulation to test"
 
 for line in file:
-    line = line.split() #Posicoes na lista: 1 = sleep; 3 = upload; 5 = delay;
-    print "Sleep de " + line[1] + " seconds to reduce speed to " + line[3] + " DOW and " + line[5] + " UP with delay of " + line[7]
-    time.sleep(int(line[1]))
+    line = line.split()
 
     if flag == -1:
         flag = 0
-        subprocess.call(['sudo', '-S', path_tc,'start', line[3], line[5], line[7]])
-    else: subprocess.call(['sudo', '-S', path_tc, 'update', line[3], line[5], line[7]])
+        subprocess.call(['sudo', '-S', path_tc, 'start', 'UP:' + linePrevious[2] + "kbit"])
+    else:
+        subprocess.call(['sudo', '-S', path_tc, 'update', 'UP:' + linePrevious[2] + "kbit"])
+
+    sleep_time = long(line[1]) - long(linePrevious[1])
+    linePrevious = line
+    #if linePrevious[1] >= 900: break # secao de 15 minutos
+
+    print "Sleep of", sleep_time, "seconds to speed of", linePrevious[2], "UP kbit"
+    time.sleep(sleep_time)
+
 
 subprocess.call(['sudo', '-S', path_tc,'stop'])
-print "finish...."
+subprocess.call(['sudo', '-S', path_tc,'show'])
 
+print "finish..."
