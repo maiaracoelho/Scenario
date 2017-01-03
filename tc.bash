@@ -137,9 +137,9 @@ case "$1" in
 
   update)
 
-   echo -n "Updating bandwidth shaping: "
+   #echo -n "Updating bandwidth shaping: "
    update
-   echo "done"
+   #echo "done"
    ;;
 
    delay)
@@ -158,7 +158,7 @@ case "$1" in
 
   show)
 
-    echo "Bandwidth shaping status for $IF:"
+    echo -n "Bandwidth shaping status for $IF:"
     show
     echo ""
     ;;
