@@ -4,7 +4,6 @@ import subprocess
 import time
 import sys
 
-
 path_file = "/home/berg/PycharmProjects/Scripts/bw_fluctuation_claro_mao_evening_AVBW.txt"
 path_tc = '/home/berg/PycharmProjects/Scripts/tc.bash'
 file = open(path_file, "r")
@@ -35,6 +34,7 @@ def run(start = 0, interval = True):
 
     subprocess.call(['sudo', '-S', path_tc, 'stop'])
     subprocess.call(['sudo', '-S', path_tc, 'show'])
+
     print("Finish...")
 
 
@@ -78,6 +78,8 @@ class Scenario():
     def printScenario(self):
         [data.printData() for data in self.lst]
 
+# if len(sys.argv) > 1: run(sys.argv[1], sys.argv[2])
+# else: run()
 
-if len(sys.argv) > 1: run(sys.argv[1], sys.argv[2])
-else: run()
+start = raw_input("Insira inicio: ")
+run(long(start))
