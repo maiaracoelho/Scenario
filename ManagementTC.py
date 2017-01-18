@@ -29,8 +29,7 @@ def run(start = 0, interval = True):
         print("Sleep of " + str(sleep) + " seconds to speed of " + obj.rate + " UP kbit", end='\r')
         sys.stdout.flush()
 
-        if interval:
-            if obj.seconds_prev >= (long(start) + section_in_seconds): break # secao de 15 minutos
+        if interval and obj.seconds_prev >= (long(start) + section_in_seconds): break # secao de 15 minutos
 
     subprocess.call(['sudo', '-S', path_tc, 'stop'])
     subprocess.call(['sudo', '-S', path_tc, 'show'])
@@ -74,6 +73,12 @@ class Scenario():
             position +=1
 
         return index
+
+    def averageBandwith(self):
+        average = 0
+        for data in self.lst:
+            average += float(data.rate)
+        return average / len(self.lst)
 
     def printScenario(self):
         [data.printData() for data in self.lst]
