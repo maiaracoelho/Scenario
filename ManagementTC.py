@@ -1,5 +1,5 @@
 #! /usr/local/bin/python
-from __future__ import print_function
+# from __future__ import print_function
 import subprocess
 import time
 import sys
@@ -26,7 +26,7 @@ def run(start = 0, interval = True):
 
         sleep = obj.seconds - obj.seconds_prev
         time.sleep(sleep)
-        print("Sleep of " + str(sleep) + " seconds to speed of " + obj.rate + " UP kbit", end='\r')
+        print("Sleep of " + str(sleep) + " seconds to speed of " + obj.rate + " UP kbit")
         sys.stdout.flush()
 
         if interval and obj.seconds_prev >= (long(start) + section_in_seconds): break # secao de 15 minutos
