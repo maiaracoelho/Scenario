@@ -8,9 +8,9 @@ def strToJson(str):
     return json.loads(str)
 
 def averageBitrate():
-    lstChunk = strToJson(input_file)['chunkDuration']
+    lst_chunk = strToJson(input_file)['chunkDuration']
 
-    sum1 = sum([lstChunk[i]['bitrate'] * (lstChunk[i]['duration'] / 1000) for i, obj in enumerate(lstChunk)])
+    sum1 = sum([lst_chunk[i]['bitrate'] * (lst_chunk[i]['duration'] / 1000) for i, obj in enumerate(lst_chunk)])
     return sum1 # / tempo_sessao
 
 def justice():
