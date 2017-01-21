@@ -1,8 +1,11 @@
 #! /usr/local/bin/python
-# from __future__ import print_function
+from __future__ import print_function
 import subprocess
 import time
 import sys
+
+from DirectoryManager import DirectoryManager
+from MetricsSession import MetricsSession
 
 path_file = "/home/berg/PycharmProjects/Scripts/bw_fluctuation_claro_mao_evening_AVBW.txt"
 path_tc = '/home/berg/PycharmProjects/Scripts/tc.bash'
@@ -34,8 +37,16 @@ def run(start = 0, interval = True):
     subprocess.call(['sudo', '-S', path_tc, 'stop'])
     subprocess.call(['sudo', '-S', path_tc, 'show'])
 
+    log_path = processingAfterEnd(scenario_lst)
+    metrics = MetricsSession(scenario_lst.averageBandwith(), log_path)
+
     print("Finish...")
 
+def processingAfterEnd(scenario_lst):
+    dir = DirectoryManager()  # New Object DirectoryManager
+    path_dir = dir.create(team_name, dir.path_destiny)  # new folder or directory
+    path_file_rename = dir.renameFile(team_name)  # rename log file and return you path
+    return dir.move(path_file_rename, path_dir)  # move log file to folder path and return you new path
 
 class Data():
 

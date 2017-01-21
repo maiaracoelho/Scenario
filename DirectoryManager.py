@@ -19,25 +19,18 @@ class DirectoryManager():
         try:
             p = path + '/' + str(now.year) + '/' + str(now.month) + '/' + str(now.day) + '/' + label
             os.makedirs(p)
-            print "Create sucessfull"
+            print ("Create sucessfull")
             return p
         except OSError:
-            print "Error"
+            print("Error")
 
         return None
 
     def move(self, source, destiny):
         shutil.move(source, destiny)
+        return destiny
 
     def renameFile(self, label):
         destiny = path_file + label + '_' + date_hour
-        os.rename(path_logs, path_file + label + '_' + date_hour)
+        os.rename(path_logs, destiny)
         return destiny
-
-
-dir = DirectoryManager()
-
-e = "Equipe02"
-path_dir = dir.create(e, path_destiny)
-path_file_rename = dir.renameFile(e)
-dir.move(path_file_rename, path_dir)

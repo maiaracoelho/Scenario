@@ -1,31 +1,40 @@
+# coding=utf-8
 import json
 
-path_json = "/home/berg/Documentos/Logs/2017/1/10/json_example"
+path_json = "/home/berg/Dropbox/Integração Note_Cel_Desktop/example_json.txt"
 input_file = open(path_json).read()
 n_sharing = 3
 
-def strToJson(str):
-    return json.loads(str)
+class MetricsSession():
 
-def averageBitrate():
-    lst_chunk = strToJson(input_file)['chunkDuration']
+    def __init__(self, averageBandwidthScenario, path_json):
+        self.averageBandwidthScenario = long(averageBandwidthScenario)
+        self.path_json = str(path_json)
 
-    sum1 = sum([lst_chunk[i]['bitrate'] * (lst_chunk[i]['duration'] / 1000) for i, obj in enumerate(lst_chunk)])
-    return sum1 # / tempo_sessao
+    def strToJson(self, str):
+        return json.loads(str)
 
-def justice():
-    r_obtained = averageBitrate()
-    r_expected = None
+    def averageBitrate(self):
+        j = self.strToJson(input_file)
+        lst_chunk = j['chunk']
 
-    pass
+        sum1 = sum([lst_chunk[i]['bitrate'] * (lst_chunk[i]['duration'] / 1000) for i, obj in enumerate(lst_chunk)])
+        return sum1 / j['session_time']
 
-def instability():
-    pass
+    def justice(self):
+        r_obtained = self.averageBitrate()
+        r_expected = None
 
-def expectedResult(averageVideosRate, n_clients):
-    pass
+    def instability(self):
+        pass
 
-print averageBitrate()
+    def expectedResult(self, averageVideosRate, n_clients):
+        pass
 
-#lst = j["interruptions"]
-#print (json.dumps(a, indent=1))
+    def averageInterruptions(self):
+        lst_interruptions = self.strToJson(input_file)['interruptions']
+
+        sum1 = sum(
+            [lst_interruptions[i]['end'] - lst_interruptions[i]['start'] for i, obg in enumerate(lst_interruptions)])
+        return sum1 / len(lst_interruptions)
+
