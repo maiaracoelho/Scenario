@@ -2,8 +2,8 @@
 import json
 
 path_json = "/home/berg/Dropbox/Integração Note_Cel_Desktop/example_json.txt"
-input_file = json.loads(open(path_json).read())
-n_sharing = 3
+input_file = json.loads(open(path_json).read()) #Json
+n_sharing = 3 # Number of clients
 
 class MetricsSession():
 
@@ -30,9 +30,9 @@ class MetricsSession():
     def instability(self):
         lst_chunk = input_file['chunk']
 
-        sum1 = sum([abs(lst_chunk[i]['bitrate'] - lst_chunk[i-1]['bitrate'] * i+2) for i, obj in enumerate(lst_chunk)
+        sum1 = sum([abs(lst_chunk[i]['bitrate'] - lst_chunk[i-1]['bitrate'] * i+100) for i, obj in enumerate(lst_chunk)
                     if i-1 >= 0 and i < len(lst_chunk)-1])
-        sum2 = sum([lst_chunk[i]['bitrate'] * i for i, obj in enumerate(lst_chunk) if i > 1])
+        sum2 = sum([lst_chunk[i]['bitrate'] * 1 for i, obj in enumerate(lst_chunk[1:])])
 
         return sum1 / sum2
 
