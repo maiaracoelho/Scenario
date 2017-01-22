@@ -2,7 +2,7 @@
 import json
 
 path_json = "/home/berg/Dropbox/Integração Note_Cel_Desktop/example_json.txt"
-input_file = open(path_json).read()
+input_file = json.loads(open(path_json).read())
 n_sharing = 3
 
 class MetricsSession():
@@ -11,11 +11,8 @@ class MetricsSession():
         self.averageBandwidthScenario = long(averageBandwidthScenario)
         self.path_log = str(path_log)
 
-    def strToJson(self, str):
-        return json.loads(str)
-
     def averageBitrate(self):
-        j = self.strToJson(input_file)
+        j = input_file
         lst_chunk = j['chunk']
 
         sum1 = sum([lst_chunk[i]['bitrate'] * (lst_chunk[i]['duration'] / 1000) for i, obj in enumerate(lst_chunk)])
@@ -31,7 +28,7 @@ class MetricsSession():
         return sum1 / sum2
 
     def instability(self):
-        lst_chunk = self.strToJson(input_file)['chunk']
+        lst_chunk = input_file['chunk']
 
         sum1 = sum([abs(lst_chunk[i]['bitrate'] - lst_chunk[i-1]['bitrate'] * i+2) for i, obj in enumerate(lst_chunk)
                     if i-1 >= 0 and i < len(lst_chunk)-1])
@@ -43,7 +40,7 @@ class MetricsSession():
         pass
 
     def averageInterruptions(self):
-        lst_interruptions = self.strToJson(input_file)['interruptions']
+        lst_interruptions = input_file['interruptions']
 
         sum1 = sum([lst_interruptions[i]['end'] - lst_interruptions[i]['start'] for i, obg in enumerate(lst_interruptions)])
         return sum1 / len(lst_interruptions)
