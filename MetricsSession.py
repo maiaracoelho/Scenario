@@ -25,12 +25,17 @@ class MetricsSession():
 
     def justice(self):
         r_obtained = self.averageBitrate()
-        r_expected = r_expected()
+        r_expected = self.r_expected()
 
         sum1 = sum([r_obtained / r_expected for i in range(0, n_sharing)]) ** 2
         sum2 = sum([(r_obtained / r_expected) ** 2 for i in range(0, n_sharing)])
 
-        return sum1 / sum2
+        return float(sum1) / float(sum2)
+
+    def r_expected(self):
+        lst_qualities = input_file['qualities']
+        averageQualities = sum([lst_qualities[i]['width'] for i, obj in enumerate(lst_qualities)]) / len(lst_qualities)
+        return (averageQualities / n_sharing) * self.averageBandwidth()
 
     def instability(self):
         lst_chunk = input_file['chunk']
@@ -41,11 +46,6 @@ class MetricsSession():
 
         return float(sum1) / float(sum2)
 
-    def r_expected(self):
-        lst_qualities = input_file['qualities']
-        averageQualities = sum([lst_qualities[i]['width'] for i, obj in enumerate(lst_qualities)]) / len(lst_qualities)
-        return (averageQualities / n_sharing) * self.averageBandwidth()
-
     def averageInterruptions(self):
         lst_interruptions = input_file['interruption']
 
@@ -53,4 +53,4 @@ class MetricsSession():
         return sum1 / len(lst_interruptions)
 
 m = MetricsSession(0, "")
-print(m.r_expected())
+print(m.instability())
