@@ -21,6 +21,7 @@ class DirectoryManager():
         print (lst)
 
         for obj in lst:
+            print obj
             j = json.loads(open(path_file+str(obj)).read())
             try:
                 date = self.formatDate(str(j['date']))
@@ -31,8 +32,6 @@ class DirectoryManager():
                 self.renameFile(j['team'], p, str(obj))
             except OSError:
                 print("Error")
-
-            return p
 
     def createAllLogs(self, p, label, value):
         text = []
