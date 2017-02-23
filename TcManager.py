@@ -7,7 +7,7 @@ import sys
 from DirectoryManager import DirectoryManager
 from MetricsSession import MetricsSession
 
-path_file = "/home/berg/PycharmProjects/Scripts/bw_fluctuation_claro_mao_evening_AVBW.txt"
+path_file = "/home/berg/PycharmProjects/Scripts/bw_fluctation_claro_sp_manha.txt"
 path_tc = '/home/berg/PycharmProjects/Scripts/tc.bash'
 file = open(path_file, "r")
 section_in_seconds = 900
@@ -32,13 +32,13 @@ def run(start = 0, interval = True):
         print("Sleep of " + str(sleep) + " seconds to speed of " + obj.rate + " UP kbit")
         sys.stdout.flush()
 
-        if interval and obj.seconds_prev >= (long(start) + section_in_seconds): break # secao de 15 minutos
+        #if interval and obj.seconds_prev >= (long(start) + section_in_seconds): break # secao de 15 minutos
 
     subprocess.call(['sudo', '-S', path_tc, 'stop'])
     subprocess.call(['sudo', '-S', path_tc, 'show'])
 
-    log_path = processingAfterEnd(scenario_lst)
-    metrics = MetricsSession(scenario_lst.averageBandwith(), log_path)
+    #log_path = processingAfterEnd(scenario_lst)
+    #metrics = MetricsSession(scenario_lst.averageBandwith(), log_path)
 
     print("Finish...")
 

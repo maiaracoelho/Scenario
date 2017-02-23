@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="65986aa3-99bd-4873-b8e4-94b0d9234175" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DirectoryManager.py" afterPath="$PROJECT_DIR$/DirectoryManager.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MetricsSession.py" afterPath="$PROJECT_DIR$/MetricsSession.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TcManager.py" afterPath="$PROJECT_DIR$/TcManager.py" />
     </list>
     <list id="3becf688-8306-4d53-8be7-009a4c19a8de" name="New changelist" comment="" />
     <ignored path="Scenario.iws" />
@@ -24,10 +25,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DirectoryManager.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DirectoryManager.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DirectoryManager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
+            <state relative-caret-position="15">
               <caret line="40" column="37" selection-start-line="40" selection-start-column="37" selection-end-line="40" selection-end-column="37" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
@@ -36,11 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MetricsSession.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MetricsSession.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MetricsSession.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="8" selection-start-line="1" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+            <state relative-caret-position="572">
+              <caret line="59" column="37" selection-start-line="59" selection-start-column="37" selection-end-line="59" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -49,8 +50,8 @@
       <file leaf-file-name="TcManager.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TcManager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="47" column="62" selection-start-line="47" selection-start-column="59" selection-end-line="47" selection-end-column="62" />
+            <state relative-caret-position="210">
+              <caret line="14" column="27" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="27" />
               <folding>
                 <element signature="e#25#62#0" expanded="true" />
               </folding>
@@ -80,10 +81,10 @@
         <option value="$PROJECT_DIR$/tc.bash" />
         <option value="$PROJECT_DIR$/ManagerDirectories.py" />
         <option value="$PROJECT_DIR$/ManagementTC.py" />
-        <option value="$PROJECT_DIR$/TcManager.py" />
         <option value="$PROJECT_DIR$/Graphics.py" />
-        <option value="$PROJECT_DIR$/MetricsSession.py" />
         <option value="$PROJECT_DIR$/DirectoryManager.py" />
+        <option value="$PROJECT_DIR$/TcManager.py" />
+        <option value="$PROJECT_DIR$/MetricsSession.py" />
       </list>
     </option>
   </component>
@@ -164,7 +165,7 @@
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/DirectoryManager.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/MetricsSession.py" />
   </component>
   <component name="RunManager" selected="Python.Scripts">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
@@ -313,7 +314,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Scripts" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DirectoryManager.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MetricsSession.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -495,7 +496,14 @@
       <option name="project" value="LOCAL" />
       <updated>1485282067593</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="metrics (part 10)">
+      <created>1485286884762</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1485286884762</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TodoView">
@@ -516,7 +524,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2406577" sideWeight="0.5026616" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17536534" sideWeight="0.4978261" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32881" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42066807" sideWeight="0.4973384" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24634655" sideWeight="0.4973384" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32881" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -560,7 +568,8 @@
     <MESSAGE value="metrics (part 7)" />
     <MESSAGE value="metrics (part 8)" />
     <MESSAGE value="metrics (part 9)" />
-    <option name="LAST_COMMIT_MESSAGE" value="metrics (part 9)" />
+    <MESSAGE value="metrics (part 10)" />
+    <option name="LAST_COMMIT_MESSAGE" value="metrics (part 10)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -937,10 +946,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/DirectoryManager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="40" column="37" selection-start-line="40" selection-start-column="37" selection-end-line="40" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/TcManager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="47" column="62" selection-start-line="47" selection-start-column="59" selection-end-line="47" selection-end-column="62" />
+        <state relative-caret-position="210">
+          <caret line="14" column="27" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="27" />
           <folding>
             <element signature="e#25#62#0" expanded="true" />
           </folding>
@@ -949,19 +968,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MetricsSession.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="8" selection-start-line="1" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        <state relative-caret-position="572">
+          <caret line="59" column="37" selection-start-line="59" selection-start-column="37" selection-end-line="59" selection-end-column="37" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DirectoryManager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="40" column="37" selection-start-line="40" selection-start-column="37" selection-end-line="40" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

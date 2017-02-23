@@ -1,7 +1,7 @@
 # coding=utf-8
 import json
 
-path_json = "/home/berg/Dropbox/Integração Note_Cel_Desktop/example_json.txt"
+path_json = "/home/berg/codigos/app/Logs/Equipe3.txt"
 input_file = json.loads(open(path_json).read()) #Json
 n_sharing = 3 # Number of clients
 
@@ -20,7 +20,7 @@ class MetricsSession():
         j = input_file
         lst_chunk = j['chunk']
 
-        sum1 = sum([lst_chunk[i]['bitrate'] * (lst_chunk[i]['duration'] / 1000) for i, obj in enumerate(lst_chunk)])
+        sum1 = sum([lst_chunk[i]['bitrate']/1000 * (lst_chunk[i]['duration'] / 1000) for i, obj in enumerate(lst_chunk)])
         return sum1 / (j['session_time'] / 1000)
 
     def justice(self):
@@ -49,8 +49,12 @@ class MetricsSession():
     def averageInterruptions(self):
         lst_interruptions = input_file['interruption']
 
-        sum1 = sum([lst_interruptions[i]['end'] - lst_interruptions[i]['start'] for i, obg in enumerate(lst_interruptions)])
-        return sum1 / len(lst_interruptions)
+        sum1 = sum([lst_interruptions[i]['end']/1000 - lst_interruptions[i]['start']/1000 for i, obg in enumerate(lst_interruptions)])
+        return (sum1 / len(lst_interruptions))
 
 m = MetricsSession(0, "")
-print(m.instability())
+print'Grupo:', input_file["team"]
+print'Taxa media de bits', m.averageBitrate(), 'bit/s'
+print'Quantidade de interrupcoes:', len(input_file['interruption'])
+print'Tempo medio de interrupcoes', m.averageInterruptions(), 's'
+print'Instabilidade', m.instability()
