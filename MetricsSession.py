@@ -1,7 +1,9 @@
 # coding=utf-8
 import json
+import time
+import datetime
 
-path_json = "/home/berg/codigos/app/Logs/Equipe3.txt"
+path_json = "/home/berg/codigos/app/Logs/Equipe4.txt"
 input_file = json.loads(open(path_json).read()) #Json
 n_sharing = 3 # Number of clients
 
@@ -20,8 +22,8 @@ class MetricsSession():
         j = input_file
         lst_chunk = j['chunk']
 
-        sum1 = sum([lst_chunk[i]['bitrate']/1000 * (lst_chunk[i]['duration'] / 1000) for i, obj in enumerate(lst_chunk)])
-        return sum1 / (j['session_time'] / 1000)
+        sum1 = sum([(lst_chunk[i]['bitrate']/1000) * (lst_chunk[i]['duration'] / 1000) for i, obj in enumerate(lst_chunk)])
+        return sum1 / (3000)
 
     def justice(self):
         r_obtained = self.averageBitrate()
@@ -52,9 +54,32 @@ class MetricsSession():
         sum1 = sum([lst_interruptions[i]['end']/1000 - lst_interruptions[i]['start']/1000 for i, obg in enumerate(lst_interruptions)])
         return (sum1 / len(lst_interruptions))
 
+    def bitrate(self):
+        j = input_file
+        lst_chunk = j['chunk']
+
+        arq = open('/home/berg/Arquivos/arq1.txt', "w")
+        arq2 = open('/home/berg/Arquivos/arq2.txt', "w")
+
+        for i, obj in enumerate(lst_chunk):
+            arq.write(str(long(lst_chunk[i]['bitrate']) / 1000) + '\n')
+
+        for i, obj in enumerate(lst_chunk):
+            timeStamp = long(lst_chunk[i]['timeStamp'])
+            a = str(self.convertEpochToTime(timeStamp)).split(':')
+            a[0] = str(long(a[0])-4)
+            arq2.write(a[0]+':'+a[1]+':'+a[2] + '\n')
+
+        arq.close()
+        arq2.close()
+
+    def convertEpochToTime(self, timeStamp):
+        return time.strftime('%H:%M:%S',  time.gmtime(timeStamp/1000.))
+
 m = MetricsSession(0, "")
 print'Grupo:', input_file["team"]
-print'Taxa media de bits', m.averageBitrate(), 'bit/s'
+print'Taxa media de bits:', m.averageBitrate(), 'bit/s'
 print'Quantidade de interrupcoes:', len(input_file['interruption'])
-print'Tempo medio de interrupcoes', m.averageInterruptions(), 's'
-print'Instabilidade', m.instability()
+print'Tempo medio de interrupcoes:', m.averageInterruptions(), 's'
+print'Instabilidade:', m.instability(), '- Entre 0-1 (1 maior instabilidade)'
+# m.bitrate()

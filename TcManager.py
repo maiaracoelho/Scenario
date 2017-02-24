@@ -4,8 +4,9 @@ import subprocess
 import time
 import sys
 
-from DirectoryManager import DirectoryManager
-from MetricsSession import MetricsSession
+
+#from DirectoryManager import DirectoryManager
+#from MetricsSession import MetricsSession
 
 path_file = "/home/berg/PycharmProjects/Scripts/bw_fluctation_claro_sp_manha.txt"
 path_tc = '/home/berg/PycharmProjects/Scripts/tc.bash'
@@ -42,11 +43,12 @@ def run(start = 0, interval = True):
 
     print("Finish...")
 
-def processingAfterEnd(scenario_lst):
-    dir = DirectoryManager()  # New Object DirectoryManager
-    path_dir = dir.create(team_name, dir.path_destiny)  # new folder or directory
-    path_file_rename = dir.renameFile(team_name)  # rename log file and return you path
-    return dir.move(path_file_rename, path_dir)  # move log file to folder path and return you new path
+
+#def processingAfterEnd(scenario_lst):
+ #   dir = DirectoryManager()  # New Object DirectoryManager
+  #  path_dir = dir.create(team_name, dir.path_destiny)  # new folder or directory
+  #  path_file_rename = dir.renameFile(team_name)  # rename log file and return you path
+  #  return dir.move(path_file_rename, path_dir)  # move log file to folder path and return you new path
 
 class Data():
 
