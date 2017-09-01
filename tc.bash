@@ -19,7 +19,7 @@
 TC=/sbin/tc
 
 # The network interface we're planning on limiting bandwidth.
-IF=eth0             # Interface
+IF=eth1             # Interface
 
 # Download limit (in mega bits)
 #DNLD=${2:4}         # DOWNLOAD Limit
@@ -34,7 +34,7 @@ UPLD=${2:3}         # UPLOAD Limit
 #LOSS=${4:5}
 
 # IP address of the machine we are controlling
-IP=192.168.0.2     # Host IP
+IP=192.168.0.3     # Host IP
 
 # Filter options for limiting the intended interface.
 U32="$TC filter add dev $IF protocol ip parent 1:0 prio 1 u32"
