@@ -1,4 +1,53 @@
 import sys
+import math
+
+def somar(valores):
+            soma = 0.0
+            for v in valores:
+                soma += float(v)
+            return soma
+            
+def calculate_media(valores):
+        soma = somar(valores)
+        qtd_elementos = len(valores)
+        media = soma / float(qtd_elementos)
+        return media
+
+####
+# Calcular Variancia 
+####
+def calculate_variancia(valores):
+        media = calculate_media(valores)
+        soma = 0.0
+        variancia = 0.0
+ 
+        for valor in valores:
+            soma += math.pow( (float(valor) - media), 2)
+        variancia = soma / float( len(valores) )
+        return variancia
+####
+# Calcular Desvio Padrao 
+#### 
+def calculate_desvio_padrao(valores):
+	    
+            variancia = calculate_variancia(valores)
+            
+            return(variancia, math.sqrt(variancia))
+         
+def selected_rates_var_des(inicio, fim, sample):
+    
+    lista = []
+
+    for i in range(inicio, fim):
+        lista.append(sample[i]["rate"])  
+
+
+    media = calculate_media(lista)
+    variancia, desvio_padrao = calculate_desvio_padrao(lista)
+    
+    return (variancia, desvio_padrao)
+
+
 
 ####
 # Imprimir erros
@@ -265,9 +314,11 @@ print_s("Linha da amostra final: " + str(selected_start + selected_samples_count
 print_s("\tHora final: " + toHour(samples[selected_start + selected_samples_count-1]["hour"]))
 print_s("\tId final: " + str(samples[selected_start + selected_samples_count-1]["seconds"]))
 print_s("\tTaxa final: " + str(samples[selected_start + selected_samples_count-1]["rate"]))
+variancia, desvio = selected_rates_var_des(selected_start, selected_start + selected_samples_count-1, samples)
 
 print_s("Quantidade de amostras: " + str(selected_samples_count))
 print_s("Taxa Media: " + str(selected_rates_mean))
+print("Variancia: ",  round(variancia, 2))
+print("Desvio Padrao: ",  round(desvio, 2))
 print("\nEncerrando.")
 print("Desenvolvido por Antonio Cruz Jr")
-
