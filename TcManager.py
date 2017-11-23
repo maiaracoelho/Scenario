@@ -9,7 +9,7 @@ import sys
 #from MetricsSession import MetricsSession
 
 path_log = open(sys.argv[1], "w")
-path_file = "/home/dash/git/Scenario/scen/bw_fluctation_tim_sp_meanBw_3.txt"
+path_file = "/home/dash/git/Scenario/scen/bw_telefonica_sampa_weekdays_averageBW_3.txt"
 path_tc = '/home/dash/git/Scenario/tc.bash'
 file = open(path_file, "r")
 section_in_seconds = 900
@@ -18,8 +18,8 @@ def run(index):
     scenario_lst = Scenario(file)
 
     for i, obj in enumerate(scenario_lst.lst[index:]):
-	time = time.time()
-	path_log.write(str(time) + " " + str(obj.rate) + "\n")
+	time1 = time.time()
+	path_log.write(str(time1) + " " + str(obj.rate) + "\n")
         if not scenario_lst.run:
             subprocess.call(['sudo', '-S', path_tc, 'start', 'UP:' + obj.rate + "kbit"])
             scenario_lst.run = True
