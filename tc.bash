@@ -34,7 +34,7 @@ UPLD=${2:3}         # UPLOAD Limit
 #LOSS=${4:5}
 
 # IP address of the machine we are controlling
-IP=192.168.0.3     # Host IP
+IP=192.168.1.3     # Host IP
 
 # Filter options for limiting the intended interface.
 U32="$TC filter add dev $IF protocol ip parent 1:0 prio 1 u32"
