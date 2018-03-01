@@ -9,10 +9,9 @@ import sys
 #from MetricsSession import MetricsSession
 
 path_log = open(sys.argv[1], "w")
-path_file = "/home/dash/git/Scenario/scen/bw_fluctation_tim_rio_meanBw.txt"
+path_file = "/home/dash/git/Scenario/scen/abw-telefonica-sampa-workdays-Jan-Dez2016-04Mbps-SB-kbps-moving.txt"
 path_tc = '/home/dash/git/Scenario/tc.bash'
 file = open(path_file, "r")
-section_in_seconds = 900
 
 def run(index):
     scenario_lst = Scenario(file)
